@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clasificador de imágenes</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+
+<body>
+
+    <main class="contenedor">
+
+        <h1>Clasificador de imágenes</h1>
+
+        <p id="mensaje">
+            Cargando modelo...
+        </p>
+
+        <section class="controles">
+            <button type="button" id="boton-inicio">Iniciar cámara</button>
+            <button type="button" id="boton-parada">Parar cámara</button>
+        </section>
+
+        <section class="umbral">
+            <label for="umbral">
+                Coincidencia mínima:
+                <span id="valor-umbral">70</span>%
+            </label>
+
+            <input
+                type="range"
+                id="umbral"
+                min="1"
+                max="100"
+                value="70"
+            >
+        </section>
+
+        <section id="camara"></section>
+
+        <section class="subir-imagen">
+
+            <h2>Subir una imagen</h2>
+
+            <input
+                type="file"
+                id="selector-imagen"
+                accept="image/*"
+            >
+
+            <img id="imagen-seleccionada" alt="Imagen seleccionada">
+
+            <button type="button" id="boton-calificar">
+                Calificar imagen
+            </button>
+
+        </section>
+
+        <section class="resultado">
+
+            <h2>Resultado</h2>
+
+            <div id="resultado">
+                Todavía no hay ningún resultado.
+            </div>
+
+        </section>
+
+        <section class="historico">
+
+            <h2>Histórico de resultados</h2>
+
+            <button type="button" id="borrar-historico">
+                Borrar histórico
+            </button>
+
+            <div id="lista-historico"></div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
